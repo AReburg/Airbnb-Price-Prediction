@@ -1,8 +1,12 @@
 /other/
+/nb/cache/
+/nb/.ipynb_checkpoints/
+/data/calendar.csv
 /img/
 venv 
 *.pyc 
 .DS_Store 
 .env
 *__pycache__*
-
+nb/InitialCopy-A lot of unnecessary stuff.ipynb
+Neues Textdokument.txt
