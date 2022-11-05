@@ -1,74 +1,88 @@
-## Geospatial OSM Feature Extraction for Business Analytics
+## Airbnb Price Modelling
+#### Business analytics of Vienna's Airbnb listings and price modelling using geospatial OpenStreetMap features
 
-### Introduction
-In this project messaging data from Appen has been used to build a model for an API that classifies disaster 
-messages.
-The messages that were sent during disaster events are cleaned and organized in the pipline.
+<img src="img/vienna-grid.PNG" alt="OSM Data Vienna, Austria" width="400"/>
 
-The project's goal is to create a machine learning pipeline to appropriately categorize messages to a disaster relief agency.
-The project includes a web app where an emergency worker can input a new message and get classified results. 
-A web app is deployed for easy interaction and displays additional data. The visualization is implemented as a 
-plotly Dash app which is deployed [here](https://emergency-response-project.herokuapp.com/)
-.<br><br>
+### 1. Introduction
+This project aims at predicting Airbnb host charging prices of a potential new listing across Vienna.
+There is public information available about roughly 12,000 Airbnb listings and their hosts.
 
-<img src="img/dash-app-screenshot.PNG" alt="Deployed dash app" width="1000"/>
+A machine learning pipline has been established, where OSM features are used for price modelling. These features include
+the location of amenities such as shops, bars, restaurants, tourist destinations etc.
+
+The project includes a web app that displays some business analytics as well as an interface for price predicting
+a benchmark price of potential new listing, based on the geolocation.
+new message and get classified results. The visualization is implemented as a 
+plotly Dash app which is deployed [here](tbd).<br><br>
 
 
-## File Structure
+<img src="img/wordcloud-vienna.PNG" alt="Wordcloud Vienna, Austria" width="750"/>
+
+
+### 2. File Structure
 
 `app.py` main dash app <br>
-`requirements.txt` python modules that will be installed onto Heroku at build <br>
-`runtime.txt` tells Heroku (the Gunicorn HTTP server) which Python version to use <br>
-`Procfile` tells Heroku what type of process is going to run (Gunicorn web process) and the Python app entrypoint (app.py) <br>
+`requirements.txt` python modules that will be installed for the web application at build <br>
+`runtime.txt` tells (the Gunicorn HTTP server) which Python version to use <br>
+`Procfile` defines what type of process is going to run (Gunicorn web process) and the Python app entrypoint (app.py) <br>
 `/assets` this directory is to serve the CSS files and images. Generating the figures is done in `charts.py` <br>
 `/data` this folder contains the raw input `csv files`, the `database file` as well as the `process_data.py` <br>
-`/models` this folder contains the script to generate the model (`train_classifier.py`) as well as the model as a `Pickle file` <br>
-`/nb` jupyter notebooks used for data exploration, feature extraction etc. <br>
+`/data/neighbourhoods.geojson` geojson file with the geospatial data of [Viennas neighbourhoods](http://insideairbnb.com/get-the-data.html)
+`/data/vienna/listings_det.csv` csv file with data of [listings](http://insideairbnb.com/get-the-data.html)
+nerate the model (`train_classifier.py`) as well as the model as a `Pickle file` <br>
+`/nb/airbnb_vienna.ipynb` jupyter notebooks used for data exploration, feature extraction etc. and the analysis outcome <br>
 `.gitignore`<br>
 
 
-## Installation
+### 3. Installation
 
-### 1. Getting Started
+#### Getting Started
 
-- Change the current directory to the location where you want to clone the repository to run:
+- Change the current directory to the location where you want to clone the repository and run:
 
-`$ git clone https://github.com/AReburg/ETL-Pipeline-Disasaster-Contact`
-- Make sure that the app is running on the local webserver before attempting to deploy on Heroku.
+`$ git clone https://github.com/AReburg/Airbnb-Price-Prediction`
+- Make sure that the app is running on the local webserver before deployment.
 Setup your virtualenv (or don't) and ensure you have all the modules installed before running the app. 
 
 
-### 2. Requirements
-Install the modules from the **requirements.txt** with pip3 or conda from a terminal in the project root folder:
+#### Requirements
+Install the modules from the `requirements.txt` with pip3 or conda from a terminal in the project root folder:
 
-`pip3 install -r requirements.txt` <br>
+`pip install -r requirements.txt` <br>
 `conda install --file requirements.txt` (Anaconda)
 <br>
 
-## Usage
-### Prepare data and train the model
 
-Run the following commands in the project's root directory to set up your database and model.
+#### Jupyter Notebook
+Executing the notebook is tested on *anaconda distribution 6.4.12.*  with 
+*python 3.9.13*.
 
-`python data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/DisasterResponse.db` runs the ETL pipeline that cleans data and stores in database
+### 4. Usage
 
-`python models/train_classifier.py data/DisasterResponse.db models/classifier.pkl` runs ML pipeline that trains classifier and saves
+#### Local Web Application
+- Run the app from your IDE direct, or from the terminal in the projects root directory: `python app.py`
 
-### Local web application
-1. Run the app from your IDE direct, or from the terminal in the projects root directory: `python app.py`
+- It should be visible on the browser via `http://localhost/:8050`
 
-2. It should be visible on the browser via `http://localhost/:8050`
+- Open the app in the browser and start playing around
 
-3. Open the app in the browser and start playing around
+
+### 5. Results
+The main findings will be published in a Medium post. Feel free to contact me if you have any questions or suggestions.
+To view the rendered geospatial charts of the Jupyter notebook go to [nbviewer](https://nbviewer.org/) and copy the 
+notebooks link.
+
+#### Model Evaluation
+<img src="img/model_evaluation.PNG" alt="model evaluation" width="350"/>
 
 ### Conclusion
-Due to the highly unbalanced dataset the results are not good enough for a commercial application. 
-There are two ways to get a better outcome. Manually inspect all the messages and hand-label them for more details.
-or  build an unsupervised pipeline. The advantages of an unsupervised application are that no labeling
-is necassary and it is less time-consuming -results will be automatically clustered.
+So there you have it. Now you know how many restaurants there are within a 10-minute walk of each Airbnb property 80,000 AirBnb properties. You could repeat this process for bars, shops, subway stations, tourist hotspots, public parks, and whatever else you think may influence the price of an Airbnb property — as I did.
+In my final XGBoost model, as you can see below, these OSM features (highlighted in red) ended up being some of the most important drivers of price in London.
 
-#### Model evaluation
-<img src="img/model_evaluation.PNG" alt="Deployed dash app" width="350"/>
+#### Copyright and Licencing
+This project is licensed under the terms of the MIT license
 
-## Authors, Acknowledgements
-[Appen](https://appen.com/) made this data set available to Udacity for training purposes.
+#### Authors, Acknowledgements
+
+
+
