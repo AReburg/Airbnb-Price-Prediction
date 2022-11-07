@@ -55,14 +55,15 @@ Install the modules from the `requirements.txt` with pip3 or conda from a termin
 
 #### Jupyter Notebook
 Executing the notebook is tested on *anaconda distribution 6.4.12.*  with 
-*python 3.9.13*.
+*python 3.9.13*. Since the notebook is *>100 mb* without the cleared outputs it is converted to html and
+can be viewed [here](https://github.com/AReburg/Airbnb-Price-Prediction/nb/Airbnb-Analysis.html).
 
 ### 4. Usage
 
 #### Local Web Application
 - Run the app from your IDE direct, or from the terminal in the projects root directory: `python app.py`
 
-- It should be visible on the browser via `http://localhost/:8050`
+- It should be visible on the browser via `http://127.0.0.1:8050/`
 
 - Open the app in the browser and start playing around
 

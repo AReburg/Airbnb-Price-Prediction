@@ -7,3 +7,10 @@ pandas==1.4.1
 plotly==5.6.0
 scikit_learn==1.1.2
 SQLAlchemy==1.4.40
+xgboost==1.7.1
+requests==2.28.1
+geojson==2.5.0
+osmnx==1.2.2
+geopandas==0.12.1
+scipy==1.9.3
+shapely==1.8.5.post1

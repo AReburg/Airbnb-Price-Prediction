@@ -4,9 +4,8 @@
 /nb/cache/
 /nb/.ipynb_checkpoints/
 /data/calendar.csv
-/img/
 *.pyc 
 .DS_Store 
 .env
 *__pycache__*
-nb/InitialCopy-A lot of unnecessary stuff.ipynb
+nb/Untitled.ipynb
