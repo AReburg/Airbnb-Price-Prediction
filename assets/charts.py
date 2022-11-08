@@ -63,7 +63,7 @@ def get_main_chart(df):
 def get_geo_data():
     """ load geojson data """
     cwd = Path().resolve()
-    with open(os.path.join(Path(cwd).parent, 'data', 'geojson', 'vienna.geojson'), encoding='utf-8') as fp:
+    with open(os.path.join(Path(cwd), 'data', 'geojson', 'vienna.geojson'), encoding='utf-8') as fp:
         counties = geojson.load(fp)
     return counties
 

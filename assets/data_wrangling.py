@@ -133,8 +133,6 @@ class GeoData():
         df = df[['id', 'name','description', 'host_name','host_since', 'host_response_time', 'host_response_rate', 'host_acceptance_rate', 'host_is_superhost','host_listings_count','host_total_listings_count', 'host_has_profile_pic','host_identity_verified', 'neighbourhood', 'neighbourhood_cleansed', 'latitude', 'longitude', 'property_type', 'room_type', 'accommodates', 'bathrooms', 'bathrooms_text', 'bedrooms', 'beds', 'amenities','price']]
         df['neighbourhood'] = df['neighbourhood_cleansed']
         df.drop(['neighbourhood_cleansed'], axis=1, inplace=True)
-        df_cal = pd.read_csv(os.path.join(Path(cwd), 'data', 'calendar.csv'), index_col=False, sep=",")
-        df_rev = pd.read_csv(os.path.join(Path(cwd), 'data', 'reviews.csv'), index_col=False, sep=",")
 
         df['price'] = df.apply(lambda x: self.get_price(x['price']), axis=1)
 
@@ -145,7 +143,5 @@ class GeoData():
         # df['neighbourhood'].value_counts()
 
         # set data types
-        df_cal['date'] = pd.to_datetime(df_cal['date'])
-        df_rev['date'] = pd.to_datetime(df_rev['date'])
         df['host_since'] = pd.to_datetime(df['host_since'])
         return df
