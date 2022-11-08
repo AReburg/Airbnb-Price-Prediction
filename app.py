@@ -38,14 +38,15 @@ names = ['restaurant', 'cafe', 'bar', 'station', 'biergarten', 'fast_food', 'pub
 
 #logger.exception('Captured an exceptiondd.')
 
-server = Flask(__name__)
-app = dash.Dash(server=server)
-app.title = 'Dashboard'
+dash_app = dash.Dash(__name__)
+dash_app.title = 'Dashboard'
+app = dash_app.server
 
-app.layout = layout(df)
-register_callbacks(app, df, model, parameters, names)
+
+dash_app.layout = layout(df)
+register_callbacks(dash_app, df, model, parameters, names)
 
 
 if __name__ == "__main__":
-    app.run_server(debug=True)
+    dash_app.run_server(debug=True)
 
