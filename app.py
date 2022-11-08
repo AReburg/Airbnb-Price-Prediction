@@ -3,16 +3,16 @@ from assets.data_wrangling import GeoData
 import dash
 from assets.layout import layout
 from assets.callbacks import register_callbacks
-from flask import Flask
-
-# import logging
-#from opencensus.ext.azure.log_exporter import AzureLogHandler
 
 
-#logger = logging.getLogger(__name__)
-#logger.addHandler(AzureLogHandler(
-#    connection_string='InstrumentationKey=d989e5c0-698b-4b3e-a645-18ac1f273b59')
-#)
+import logging
+from opencensus.ext.azure.log_exporter import AzureLogHandler
+
+
+logger = logging.getLogger(__name__)
+logger.addHandler(AzureLogHandler(
+    connection_string='InstrumentationKey=d989e5c0-698b-4b3e-a645-18ac1f273b59')
+)
 data = GeoData()
 df = data.import_data()
 model = data.get_model()
@@ -34,9 +34,9 @@ parameters = [restaurant, cafe, bar, station, biergarten, fast_food, pub, nightc
 names = ['restaurant', 'cafe', 'bar', 'station', 'biergarten', 'fast_food', 'pub', 'nightclub', 'theatre',
          'university', 'attraction']
 
-#logger.warning('Import succerssful')
 
-#logger.exception('Captured an exceptiondd.')
+
+logger.exception('Import successful.')
 
 dash_app = dash.Dash(__name__)
 dash_app.title = 'Dashboard'
