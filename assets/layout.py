@@ -1,6 +1,7 @@
 from dash import dcc, html
 import pandas as pd
 from assets import charts
+import logging
 
 def layout(df):
 

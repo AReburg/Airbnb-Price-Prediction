@@ -14,6 +14,13 @@ from shapely.geometry.multipolygon import MultiPolygon
 from shapely import wkt
 from scipy import spatial
 
+import logging
+from opencensus.ext.azure.log_exporter import AzureLogHandler
+logger = logging.getLogger(__name__)
+logger.addHandler(AzureLogHandler(
+    connection_string='InstrumentationKey=d989e5c0-698b-4b3e-a645-18ac1f273b59')
+)
+
 cwd = Path().resolve()
 
 class GeoData():
@@ -22,13 +29,17 @@ class GeoData():
 
     def parse_input(self, text):
         """ """
-        # Universit%C3%A4tsring+2,%201010+Wien
-        data_json = requests.get(url=f'https://nominatim.openstreetmap.org/search?q={text}&format=json&polygon=1&addressdetails=1').json()
-        lat = data_json[0]['lat']
-        lon = data_json[0]['lon']
-        df = pd.DataFrame({'Location':[text]})
-        gdf = gpd.GeoDataFrame(df, geometry=gpd.GeoSeries.from_xy([lon], [lat], crs=self.get_local_utm_crs()))
-        return gdf
+        try:
+            # Universit%C3%A4tsring+2,%201010+Wien
+            data_json = requests.get(url=f'https://nominatim.openstreetmap.org/search?q={text}&format=json&polygon=1&addressdetails=1').json()
+            lat = data_json[0]['lat']
+            lon = data_json[0]['lon']
+            df = pd.DataFrame({'Location':[text]})
+            gdf = gpd.GeoDataFrame(df, geometry=gpd.GeoSeries.from_xy([lon], [lat], crs=self.get_local_utm_crs()))
+            return gdf
+        except Exception as e:
+            print(e)
+            logger.exception(f'parse input: {e}')
 
 
     def get_tree(self, df):
@@ -38,7 +49,7 @@ class GeoData():
             return tree
         except Exception as e:
             print(e)
-
+            logger.exception(f'get_tree: {e}')
 
     def find_points_closeby(self, tree, lat_lon, k=500, max_distance=500):
         """  """
@@ -110,14 +121,16 @@ class GeoData():
             price_string = price_string.replace(' ', '')
             pattern = re.compile(r'\d{1,3}(?:[.,]\d{3})*(?:[.,]\d{2})?')
             return float(pattern.findall(price_string)[0].replace(',',''))
-        except:
+        except Exception as e:
             print(price_string)
+            logger.exception(f'price_string: {price_string}, {e}')
 
     def main(self, df, parameters, names):
-
-        df = gpd.GeoDataFrame(df, geometry=gpd.points_from_xy(df.longitude, df.latitude), crs=4326)
-        df = df.to_crs(self.get_local_utm_crs())
-
+        try:
+            df = gpd.GeoDataFrame(df, geometry=gpd.points_from_xy(df.longitude, df.latitude), crs=4326)
+            df = df.to_crs(self.get_local_utm_crs())
+        except Exception as e:
+            logger.exception(f'gpd.GeoDataFrame: {e}')
         for name, i in zip(names, parameters):
             tree = self.get_tree(i)
             df[name] = df.apply(lambda row: self.find_points_closeby(tree, (row.geometry.y, row.geometry.x)), axis=1)

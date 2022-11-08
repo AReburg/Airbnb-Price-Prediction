@@ -4,7 +4,7 @@ import plotly.graph_objects as go
 import os
 from pathlib import Path
 import geojson
-
+import logging
 
 cwd = Path().resolve()
 token = open(os.path.join(Path(cwd), 'assets', '.mapbox_token')).read()
@@ -30,7 +30,7 @@ def get_category_chart(df):
     direct_cate_names = list(direct_cate_counts.index)
 
     fig = px.bar(x=[i.replace("_", " ").title() for i in direct_cate_names], y=direct_cate_counts)
-    fig.update_traces(marker_color=night_colors[0], marker_line_color='#9c9c9c', marker_line_width=1, opacity=0.7)
+    # fig.update_traces(marker_color=night_colors[0], marker_line_color='#9c9c9c', marker_line_width=1, opacity=0.7)
     fig.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
     fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
 
