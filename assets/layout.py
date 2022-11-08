@@ -47,8 +47,8 @@ def layout(df):
             html.Br(),
             html.H2(f"Categorization based on the {len(df.columns[2:])} pre-defined topics"),
             html.Br(),
-            html.Div([dcc.Graph(id='result-histogram', figure={}, config={'displayModeBar': False},
-                                style={'height': '900px', 'width': '1200px'})], className='dash-graph')
+            #html.Div([dcc.Graph(id='result-histogram', figure={}, config={'displayModeBar': False},
+            #                    style={'height': '900px', 'width': '1200px'})], className='dash-graph')
         ], className='eight columns div-for-charts bg-grey')
     ])
     return layout

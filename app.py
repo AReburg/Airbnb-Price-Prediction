@@ -10,6 +10,7 @@ from opencensus.ext.azure.log_exporter import AzureLogHandler
 
 
 logger = logging.getLogger(__name__)
+
 logger.addHandler(AzureLogHandler(
     connection_string='InstrumentationKey=d989e5c0-698b-4b3e-a645-18ac1f273b59')
 )
@@ -34,9 +35,6 @@ parameters = [restaurant, cafe, bar, station, biergarten, fast_food, pub, nightc
 names = ['restaurant', 'cafe', 'bar', 'station', 'biergarten', 'fast_food', 'pub', 'nightclub', 'theatre',
          'university', 'attraction']
 
-
-
-logger.exception('Import successful.')
 
 dash_app = dash.Dash(__name__)
 dash_app.title = 'Dashboard'

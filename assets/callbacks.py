@@ -14,7 +14,7 @@ logger.addHandler(AzureLogHandler(
 
 def register_callbacks(app, df, model, parameters, names):
     @app.callback(
-        [Output('result-histogram', 'figure'), Output('tokenized_text', 'children')],
+        [Output('tokenized_text', 'children')],
         Input("input_text", "value"))
     def update_categories(input_text):
         """ use model to predict benchmark price for input address"""
@@ -28,16 +28,22 @@ def register_callbacks(app, df, model, parameters, names):
             try:
                 dfi = data.parse_input(input_text)
                 dfi[['longitude', 'latitude']] = dfi.apply(lambda x: data.get_lat_long(x['geometry']), axis=1)
+                logger.warning(f"{dfi['longitude'].item()}")
             except Exception as e:
-                logger.exception(f"Errroin in pared_input: {e}")
-            logger.warning(f"{dfi['longitude'].item()}")
+                logger.exception(f"Error in parse input: {e}")
+
             # print(dfi.head())
             try:
                 X_pred = data.main(dfi, parameters, names)
+                logger.warning(f"X_pred: {X_pred['restaurant'].item()} {X_pred['cafe'].item()} {X_pred['bar'].item()}")
             except Exception as e:
                 logger.exception(f'X_pred exception: {e}')
-            # print(X_pred.head())
-            preds = round(float(model.predict(X_pred)),2)
-            # preds = f'{preds} $'
+            #print(X_pred.head())
+            try:
+                preds = round(float(model.predict(X_pred)),2)
+                preds = f'{preds} $'
+            except Exception as e:
+                logger.exception(f'X_pred exception: {e}')
+                preds = f'Error in price prediction.'
 
-        return [str(preds), preds]
+        return [preds]
