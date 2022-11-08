@@ -84,6 +84,7 @@ class GeoData():
         except Exception as e:
             pass
 
+
     def geo_coordinates(self, df):
         """ import from csv in geopandas dataframe
         source: https://stackoverflow.com/questions/61122875/geopandas-how-to-read-a-csv-and-convert-to-a-geopandas-dataframe-with-polygons

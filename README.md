@@ -1,7 +1,7 @@
 ## Airbnb Price Modelling
 #### Business analytics of Vienna's Airbnb listings and price modelling using geospatial OpenStreetMap features
 
-<img src="img/vienna-grid.PNG" alt="OSM Data Vienna, Austria" width="400"/>
+<img src="img/vienna-grid.png" alt="OSM Data Vienna, Austria" width="400"/>
 
 ### 1. Introduction
 This project aims at predicting Airbnb host charging prices of a potential new listing across Vienna.
@@ -13,18 +13,19 @@ the location of amenities such as shops, bars, restaurants, tourist destinations
 The project includes a web app that displays some business analytics as well as an interface for price predicting
 a benchmark price of potential new listing, based on the geolocation.
 new message and get classified results. The visualization is implemented as a 
-plotly Dash app which is deployed [here](tbd).<br><br>
+plotly Dash app which is on deploy on Aszure and accessible [here](https://airbnb-price-prediction.azurewebsites.net/).<br><br>
 
 
-<img src="img/wordcloud-vienna.PNG" alt="Wordcloud Vienna, Austria" width="750"/>
+<img src="img/wordcloud-vienna.png" alt="Wordcloud Vienna, Austria" width="750"/>
 
 
 ### 2. File Structure
 
 `app.py` main dash app <br>
 `requirements.txt` python modules that will be installed for the web application at build <br>
-`runtime.txt` tells (the Gunicorn HTTP server) which Python version to use <br>
-`Procfile` defines what type of process is going to run (Gunicorn web process) and the Python app entrypoint (app.py) <br>
+`runtime.txt` tells (the Gunicorn HTTP server) which Python version to use (only needed for Heroku deployment)<br>
+`Procfile` defines what type of process is going to run (Gunicorn web process) and the Python app entrypoint
+(only needed for Heroku deployment) <br>
 `/assets` this directory is to serve the CSS files and images. Generating the figures is done in `charts.py` <br>
 `/data` this folder contains the raw input `csv files`, the `database file` as well as the `process_data.py` <br>
 `/data/neighbourhoods.geojson` geojson file with the geospatial data of [Viennas neighbourhoods](http://insideairbnb.com/get-the-data.html)
@@ -40,7 +41,7 @@ nerate the model (`train_classifier.py`) as well as the model as a `Pickle file`
 
 - Change the current directory to the location where you want to clone the repository and run:
 
-`$ git clone https://github.com/AReburg/Airbnb-Price-Prediction`
+`$ git clone https://github.com/AReburg/Airbnb-Price-Prediction.git`
 - Make sure that the app is running on the local webserver before deployment.
 Setup your virtualenv (or don't) and ensure you have all the modules installed before running the app. 
 

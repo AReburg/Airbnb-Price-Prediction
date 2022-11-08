@@ -19,7 +19,7 @@ def layout(df):
             the location of amenities such as shops, bars, restaurants, tourist destinations etc.
             """),
             # html.Div([f"The data set consists of {df.shape[0]} samples:"], className='text-padding'),
-            html.Div([dcc.Graph(figure=charts.heatmap_airbnb(df), config={'displayModeBar': False})]),
+            # html.Div([dcc.Graph(figure=charts.heatmap_airbnb(df), config={'displayModeBar': False})]),
             ], className='four columns div-user-controls'),
 
         # right half of the web page

@@ -5,11 +5,10 @@ import os
 from pathlib import Path
 import geojson
 
-# Define color sets of paintings
-night_colors = ['rgb(56, 75, 126)', 'rgb(18, 36, 37)', 'rgb(34, 53, 101)']
-cwd = Path().resolve()
 
-token = open(os.path.join(Path(cwd),'.mapbox_token')).read()
+cwd = Path().resolve()
+token = open(os.path.join(Path(cwd), 'assets', '.mapbox_token')).read()
+
 
 def get_pie_chart(df):
     """ generates the pie chart with the three main genres of the categories """
@@ -64,7 +63,7 @@ def get_main_chart(df):
 def get_geo_data():
     """ load geojson data """
     cwd = Path().resolve()
-    with open(os.path.join(Path(cwd), 'data', 'geojson', 'vienna.geojson'), encoding='utf-8') as fp:
+    with open(os.path.join(Path(cwd).parent, 'data', 'geojson', 'vienna.geojson'), encoding='utf-8') as fp:
         counties = geojson.load(fp)
     return counties
 

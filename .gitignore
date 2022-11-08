@@ -1,6 +1,5 @@
 /.idea/
 /venv/
-/other/
 /nb/cache/
 /nb/.ipynb_checkpoints/
 /data/calendar.csv
