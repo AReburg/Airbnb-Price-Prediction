@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'airbnb-price-prediction'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_793AEFDEE8FE4DB8B57511E5EE3AD1CF }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_41A2DB564F1749829414F1EC7B170293 }}
