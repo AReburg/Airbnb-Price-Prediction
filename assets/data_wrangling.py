@@ -8,24 +8,24 @@ import os
 import pickle
 import osmnx as ox
 import re
+import logging
 from pathlib import Path
+from shapely.geometry import Point
 from shapely.geometry.polygon import Polygon
 from shapely.geometry.multipolygon import MultiPolygon
 from shapely import wkt
 from scipy import spatial
-
-import logging
 from opencensus.ext.azure.log_exporter import AzureLogHandler
 logger = logging.getLogger(__name__)
 logger.addHandler(AzureLogHandler(
     connection_string='InstrumentationKey=d989e5c0-698b-4b3e-a645-18ac1f273b59')
 )
-
 cwd = Path().resolve()
+
 
 class GeoData():
     def __int__(self):
-        print("init")
+        print(" ")
 
     def parse_input(self, text):
         """ """
@@ -43,13 +43,14 @@ class GeoData():
 
 
     def get_tree(self, df):
+        """ """
         try:
             coords = list(zip(df.geometry.apply(lambda x: x.y).values, df.geometry.apply(lambda x: x.x).values))
             tree = spatial.KDTree(coords)
             return tree
         except Exception as e:
             print(e)
-            logger.exception(f'get_tree: {e}')
+
 
     def find_points_closeby(self, tree, lat_lon, k=500, max_distance=500):
         """  """
@@ -124,6 +125,20 @@ class GeoData():
         except Exception as e:
             print(price_string)
             logger.exception(f'price_string: {price_string}, {e}')
+
+
+    def check_if_coord_in_poly(self, region, long, lat):
+        """
+        Check if a coordinate (lat,long) is within a given polygon
+        source: https://stackoverflow.com/questions/48097742/geopandas-point-in-polygon
+        Return: True if Point wihtin Polygon
+        """
+        _pnts = [Point(long, lat)]
+        poly = gpd.GeoSeries({'within': region})
+        pnts = gpd.GeoDataFrame(geometry=_pnts, index=['Point to check'], crs=self.get_local_crs(16.363449, 48.210033))
+        pnts = pnts.assign(**{key: pnts.within(geom) for key, geom in poly.items()})
+        return pnts['within'].item()
+
 
     def main(self, df, parameters, names):
         try:

@@ -1,22 +1,20 @@
-# from dash import Dash, dcc, html, Input, Output
-from assets.data_wrangling import GeoData
 import dash
-from assets.layout import layout
-from assets.callbacks import register_callbacks
-
-
 import logging
+from assets.layout import layout
+from assets.data_wrangling import GeoData
+from assets.callbacks import register_callbacks
 from opencensus.ext.azure.log_exporter import AzureLogHandler
 
-
 logger = logging.getLogger(__name__)
-
 logger.addHandler(AzureLogHandler(
     connection_string='InstrumentationKey=d989e5c0-698b-4b3e-a645-18ac1f273b59')
 )
+
 data = GeoData()
 df = data.import_data()
 model = data.get_model()
+region = data.get_region()
+
 
 restaurant = data.import_csv_to_gpd('restaurant')
 cafe = data.import_csv_to_gpd('cafe')
@@ -37,12 +35,12 @@ names = ['restaurant', 'cafe', 'bar', 'station', 'biergarten', 'fast_food', 'pub
 
 
 dash_app = dash.Dash(__name__)
-dash_app.title = 'Dashboard'
+dash_app.title = 'Airbnb Price Modelling'
 app = dash_app.server
 
 
-dash_app.layout = layout(df)
-register_callbacks(dash_app, df, model, parameters, names)
+dash_app.layout = layout(dash_app, df)
+register_callbacks(dash_app, df, model, region, parameters, names)
 
 
 if __name__ == "__main__":
