@@ -8,7 +8,10 @@ import os
 import pickle
 import osmnx as ox
 import re
+from time import time
+import json
 import logging
+import geojson
 from pathlib import Path
 from shapely.geometry import Point
 from shapely.geometry.polygon import Polygon
@@ -27,10 +30,17 @@ class GeoData():
     def __int__(self):
         print(" ")
 
+    def get_geo_data(self):
+        """ load geojson data """
+        cwd = Path().resolve()
+        with open(os.path.join(Path(cwd), 'data', 'geojson', 'vienna.geojson'), encoding='utf-8') as fp:
+            counties = geojson.load(fp)
+        return counties
+
+
     def parse_input(self, text):
-        """ """
+        """ e.g. Universitätsring 2, Wien -> to POINT(lat/long) """
         try:
-            # Universit%C3%A4tsring+2,%201010+Wien
             data_json = requests.get(url=f'https://nominatim.openstreetmap.org/search?q={text}&format=json&polygon=1&addressdetails=1').json()
             lat = data_json[0]['lat']
             lon = data_json[0]['lon']
@@ -43,7 +53,7 @@ class GeoData():
 
 
     def get_tree(self, df):
-        """ """
+        """ get spatial KDtree"""
         try:
             coords = list(zip(df.geometry.apply(lambda x: x.y).values, df.geometry.apply(lambda x: x.x).values))
             tree = spatial.KDTree(coords)
@@ -53,7 +63,7 @@ class GeoData():
 
 
     def find_points_closeby(self, tree, lat_lon, k=500, max_distance=500):
-        """  """
+        """ find points of interrest in a k-meter radius """
         results = tree.query((lat_lon), k=k, distance_upper_bound=max_distance)
         zipped_results = list(zip(results[0], results[1]))
         zipped_results = [i for i in zipped_results if i[0] != np.inf]
@@ -140,7 +150,8 @@ class GeoData():
         return pnts['within'].item()
 
 
-    def main(self, df, parameters, names):
+    def predict_price(self, df, parameters, names):
+        """ predict price based on osm features """
         try:
             df = gpd.GeoDataFrame(df, geometry=gpd.points_from_xy(df.longitude, df.latitude), crs=4326)
             df = df.to_crs(self.get_local_utm_crs())
@@ -150,8 +161,9 @@ class GeoData():
             tree = self.get_tree(i)
             df[name] = df.apply(lambda row: self.find_points_closeby(tree, (row.geometry.y, row.geometry.x)), axis=1)
 
-        return df.iloc[:, 4:-1]
-
+        # todo: supermarkets are not considered yet.
+        # todo: change hard coded column numbers
+        return df.iloc[:, 4:-2]
 
 
     def import_data(self):

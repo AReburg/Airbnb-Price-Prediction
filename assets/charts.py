@@ -2,25 +2,23 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 import os
+import json
 from pathlib import Path
 import geojson
 import logging
+from time import time
+import plotly.io as pio
 
 cwd = Path().resolve()
 token = open(os.path.join(Path(cwd), 'assets', '.mapbox_token')).read()
 
 
-def get_pie_chart(df):
-    """ generates the pie chart with the three main genres of the categories """
-    fig = go.Figure(data=[go.Pie(values=df.genre.value_counts().to_list(), labels=df.genre.unique(), textinfo='label',
-                                      insidetextorientation='radial', hole=.25, marker_colors=night_colors)])
-    fig.update_layout(legend_font_size=14, font=dict(family="Open Sans"))
-    fig.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
-    fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
-    fig.update(layout_showlegend=False)
-    fig.update_traces(marker=dict(line=dict(color='#9c9c9c', width=1.5)))
-    fig.update_traces(opacity=0.7)
-    return fig
+def save_figure(fig, name):
+    t0 = time()
+    with open(f"{name}.json", "w") as outfile:
+        outfile.write(fig)
+    print(time() - t0)
+
 
 def aggregate_data(df, group='', agge='', rename=''):
     """ function to group, aggregate and rename the dataframe """
@@ -31,11 +29,57 @@ def aggregate_data(df, group='', agge='', rename=''):
     return df
 
 
-def heatmap_airbnb_prices(df, title=''):
+def add_trace(fig, amenities, symbol, size=5):
+    fig.add_traces(go.Scattermapbox(mode = "markers",
+    lon = amenities.long.tolist(), lat = amenities.lat.tolist(), hoverinfo='skip',
+    marker = {'size': size, 'symbol': symbol},showlegend=False,name="dfd"))
+
+
+def heatmap_airbnb_amenities(parameters, names, districts, point={"lat": 48.210033, "lon": 16.363449},
+                             zoom=10, mode='offline', title=''):
+    """ """
+    t0 = time()
+    if mode == 'offline':
+        with open('airbnb_amenities.json', 'r') as f:
+            fig = pio.from_json(f.read())
+            print("figure import file took: ", time() - t0)
+            return fig
+    fig = go.Figure(go.Scattermapbox(
+        mode="markers",
+        lon=parameters[0].long.tolist(), lat=parameters[0].lat.tolist(),
+        marker={'size': 5, 'symbol': "restaurant"}, hoverinfo='skip', showlegend=False
+    ))
+    # ['restaurant', 'cafe', 'bar', 'station', 'biergarten', 'fast_food', 'pub', 'nightclub', 'theatre',
+    #              'university', 'attraction']
+    add_trace(fig, parameters[1], symbol="cafe", size=4)
+    add_trace(fig, parameters[2], symbol="alcohol-shop", size=4)
+    add_trace(fig, parameters[3], symbol="bus", size=7)
+    add_trace(fig, parameters[-1], symbol="grocery", size=2)
+    # add location spot
+    fig.add_traces(go.Scattermapbox(lat=[point['lat']], lon=[point['lon']], mode='markers', marker_size=8,
+                                    opacity=0.8, showlegend=True, marker_color="red", name="Location"))
+
+    fig.update_layout(mapbox_style="light", mapbox_accesstoken=token, mapbox_zoom=zoom,
+                      mapbox_center=point)
+    fig.update_layout(font=dict(family="Helvetica"), legend={"title": "Select category:"})
+    fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0}, paper_bgcolor='rgba(0,0,0,0)',
+                      plot_bgcolor='rgba(0,0,0,0)')
+
+    print("figure ammenities builg took: ", time() - t0)
+    save_figure(fig.to_json(), 'airbnb_amenities')
+    return fig
+
+def heatmap_airbnb_prices(df, districts, mode='offline', title=''):
     """
     interesting: https://stackoverflow.com/questions/71104827/plotly-express-choropleth-map-custom-color-continuous-scale
     """
-    districts = get_geo_data()
+    t0 = time()
+    if mode == 'offline':
+        with open('airbnb_prices.json', 'r') as f:
+            fig = pio.from_json(f.read())
+            print("figure import file took: ", time() - t0)
+            return fig
+
     k = aggregate_data(df, 'neighbourhood', {'neighbourhood': ['first'], 'price': ['median']}, \
                        rename=['district', 'median'])
     k['median'] = k['median'].astype('category')
@@ -56,7 +100,6 @@ def heatmap_airbnb_prices(df, title=''):
                                color=cols,
                                title=title,
                                color_discrete_sequence=farbe,
-                               # color_discrete_sequence=px.colors.qualitative.Prism,
                                labels={'median': 'price per night'},
                                mapbox_style="open-street-map", zoom=10, center={"lat": 48.210033, "lon": 16.363449},
                                opacity=0.60)
@@ -75,14 +118,19 @@ def heatmap_airbnb_prices(df, title=''):
     fig.update_layout(font=dict(family="Helvetica"))
     fig.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
     fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
+    print("figure took: ", time() - t0)
+    save_figure(fig.to_json(), 'airbnb_prices')
     return fig
 
 
-def heatmap_airbnb_listings(df, title=''):
+def heatmap_airbnb_listings(df, districts, mode='offline', title=''):
     """
     https://plotly.com/python/builtin-colorscales/
     """
-    districts = get_geo_data()
+    if mode == 'offline':
+        with open('airbnb_listings.json', 'r') as f:
+            fig = pio.from_json(f.read())
+            return fig
     agg = df.groupby('neighbourhood').agg(nr_listings = ('id', 'count')).reset_index().sort_values('nr_listings', ascending=False)
     agg['ratio'] = 100 * agg['nr_listings'] / agg['nr_listings'].sum()
     agg['nr_listings'] = agg['nr_listings'].astype('category')
@@ -104,29 +152,7 @@ def heatmap_airbnb_listings(df, title=''):
     fig.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
     fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
     #fig.update_layout(autosize=False,width=700,height=500)
-    return fig
-
-
-def get_category_chart(df):
-    """generates the bar chart of the category distribution from the "direct" genre """
-    direct_cate = df[df.genre == 'direct']
-    direct_cate_counts = (direct_cate.mean(numeric_only=True) * direct_cate.shape[0]).sort_values(ascending=False)
-    direct_cate_names = list(direct_cate_counts.index)
-
-    fig = px.bar(x=[i.replace("_", " ").title() for i in direct_cate_names], y=direct_cate_counts)
-    # fig.update_traces(marker_color=night_colors[0], marker_line_color='#9c9c9c', marker_line_width=1, opacity=0.7)
-    fig.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
-    fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
-
-    fig.update_layout(xaxis={'visible': True, 'showticklabels': True})
-    fig.update_layout(yaxis={'visible': True, 'showticklabels': True})
-    fig.update_yaxes(tickfont=dict(family='Helvetica', color='#9c9c9c'),
-                     title_font_color='#9c9c9c', mirror=True,
-                     ticks='outside', showline=True, gridwidth=1, gridcolor='#4c4c4c')
-    fig.update_xaxes(tickfont=dict(family='Helvetica', color='#9c9c9c'),
-                     title_font_color='#9c9c9c', mirror=True,
-                     ticks='outside', showline=True, gridwidth=1, gridcolor='#4c4c4c')
-    fig.update_layout(yaxis_title=None, xaxis_title=None)
+    save_figure(fig.to_json(), 'airbnb_listings')
     return fig
 
 
@@ -170,6 +196,8 @@ def get_main_chart(dfx):
         fig.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
         fig.update_layout(autosize=True,height=300,margin_pad=0)
         fig.update_layout(margin={"r":0,"t":20,"l":0,"b":0})
+        fig.update_yaxes(fixedrange=True)
+        fig.update_xaxes(fixedrange=True)
         return fig
     except:
         fig = go.Figure(go.Scatter(x=[0], y=[0]))
@@ -178,66 +206,3 @@ def get_main_chart(dfx):
         fig.update_yaxes(showgrid=False, showticklabels=False, zeroline=False)
         return fig
 
-
-def get_geo_data():
-    """ load geojson data """
-    cwd = Path().resolve()
-    with open(os.path.join(Path(cwd), 'data', 'geojson', 'vienna.geojson'), encoding='utf-8') as fp:
-        counties = geojson.load(fp)
-    return counties
-
-
-def heatmap_airbnb(df, title=''):
-    """ """
-    districts = get_geo_data()
-    agg = df.groupby('neighbourhood').agg(nr_listings=('id', 'count')).reset_index().sort_values('nr_listings',
-          ascending=False)
-    agg['ratio'] = 100 * agg['nr_listings'] / agg['nr_listings'].sum()
-    fig = px.choropleth_mapbox(agg, geojson=districts, locations=agg['neighbourhood'],
-                               featureidkey="properties.name", color=agg['ratio'],
-                               title=title,
-                               mapbox_style="open-street-map", zoom=10, center={"lat": 48.210033, "lon": 16.363449},
-                               opacity=0.40)
-
-    fig.add_scattermapbox(
-        lat=df['latitude'].tolist(),
-        lon=df['longitude'].tolist(),
-        mode='markers',
-        # text=texts,
-        marker_size=2,
-        marker_color='#F3F5F6',
-        opacity=0.9
-    )
-    fig.update_layout(mapbox_style="light", mapbox_accesstoken=token)
-    fig.update_layout(
-            font=dict(family="Open Sans"),
-            coloraxis_colorbar_title='$/night',
-            legend_font_size=14
-            )
-    fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
-    fig.update_yaxes(linewidth=1, linecolor='LightGrey', gridwidth=1, gridcolor='LightGrey', mirror=True,
-                     ticks='outside', showline=True)
-    return fig
-
-
-def bar_airbnb(df):
-    """generates the bar chart of the category distribution from the "direct" genre """
-    night_colors = ['rgb(56, 75, 126)', 'rgb(18, 36, 37)', 'rgb(34, 53, 101)']
-    agg = df.groupby('neighbourhood').agg(nr_listings = ('id', 'count')).reset_index().sort_values('nr_listings', ascending=False)
-    agg['ratio'] = 100 * agg['nr_listings'] / agg['nr_listings'].sum()
-
-    fig = px.bar(x=agg['neighbourhood'].tolist(), y=agg['ratio'])
-    fig.update_traces(marker_color=night_colors[0], marker_line_color='#9c9c9c', marker_line_width=1, opacity=0.7)
-    fig.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
-    fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
-
-    fig.update_layout(xaxis={'visible': True, 'showticklabels': True})
-    fig.update_layout(yaxis={'visible': True, 'showticklabels': True})
-    fig.update_yaxes(tickfont=dict(family='Helvetica', color='#9c9c9c'),
-                     title_font_color='#9c9c9c', mirror=True,
-                     ticks='outside', showline=True, gridwidth=1, gridcolor='#4c4c4c')
-    fig.update_xaxes(tickfont=dict(family='Helvetica', color='#9c9c9c'),
-                     title_font_color='#9c9c9c', mirror=True,
-                     ticks='outside', showline=True, gridwidth=1, gridcolor='#4c4c4c')
-    fig.update_layout(yaxis_title=None, xaxis_title=None)
-    return fig

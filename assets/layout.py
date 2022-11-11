@@ -6,7 +6,7 @@ import logging
 import dash_dangerously_set_inner_html
 import dash_bootstrap_components as dbc
 
-def layout(app, df):
+def layout(app, df, districts, parameters, names):
 
     layout = html.Div([
         # left half of the web page
@@ -36,30 +36,28 @@ def layout(app, df):
 
         # right half of the web page
         html.Div([
-
             html.Br(),
-            # html.Div([dcc.Graph(figure=charts.heatmap_airbnb(df), config={'displayModeBar': False})]),
-            html.Div(dcc.Tabs(id="tabs-example-graph", value='tab-1-example-graph', children=[
-                dcc.Tab(label='Listings', value='tab-1-listings'),
-                dcc.Tab(label='Prices', value='tab-2-prices'),
-            ])),
-            html.Div(id='tabs-content-example-graph'),
+            # Tabs - Method 2
+            dcc.Tabs([
+                dcc.Tab(label='Amenities',
+                        children=[
+                            dcc.Graph(id='text_lat_long', config={'displayModeBar': False}),]),
+                dcc.Tab(label='Listings', children=[dcc.Graph(figure=charts.heatmap_airbnb_listings(df, districts, mode='dffline'),
+                                                              config={'displayModeBar': False})]),
+                dcc.Tab(label='Prices', children=[dcc.Graph(figure=charts.heatmap_airbnb_prices(df, districts, mode='dffline'),
+                                                            config={'displayModeBar': False})]),
+                ]),
             html.Br(),
             html.Br(),
             html.Div(
                 children=[dcc.Input(id="input_text", type="text", placeholder="Enter an address (Vienna only) for price estimation.", debounce=True,
                                     style={'width': '45%', 'padding': '5px'})],
-                #style=dict(display='flex', justifyContent='center')
             ),
             html.Br(),
             html.Div(id="tokenized_text"),
             html.Div(dash_dangerously_set_inner_html.DangerouslySetInnerHTML(
                 """ The chart below depicts the number of amenities found within 1000 m around the geolocation:""")),
             dcc.Graph(id='result-histogram', config={'displayModeBar': False}),
-
-
-            #html.Div([dcc.Graph(id='result-histogram', figure={}, config={'displayModeBar': False},
-            #                    style={'height': '900px', 'width': '1200px'})], className='dash-graph')
         ], className='eight columns div-for-charts bg-grey')
     ])
     return layout
