@@ -14,8 +14,7 @@ The project includes a web app that displays some statistics as well as an inter
 prediction, based on the geolocation of a new listing. The visualization is implemented as a 
 plotly Dash app which is on deploy on Aszure and accessible [here](https://airbnb-price-prediction.azurewebsites.net/).<br><br>
 
-
-<img src="img/wordcloud-vienna.png" alt="Wordcloud Vienna, Austria" width="650"/>
+<img src="img/app-dashboard.png" alt="Screenshot of the app dashboard" width="650"/>
 
 
 ### 2. File Structure
@@ -35,6 +34,7 @@ for all the data queries and date manipulation. <br>
 (only needed for a deployment on Heroku) <br>
 `.gitignore`<br>
 
+<img src="img/wordcloud-vienna.png" alt="Wordcloud Vienna, Austria" width="650"/>
 
 ### 3. Installation
 

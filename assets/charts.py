@@ -5,9 +5,12 @@ import os
 import json
 from pathlib import Path
 import geojson
-import logging
 from time import time
 import plotly.io as pio
+import shapely.ops
+import shapely.geometry
+import geopandas as gpd
+from shapely.geometry import Point
 
 cwd = Path().resolve()
 token = open(os.path.join(Path(cwd), 'assets', '.mapbox_token')).read()
@@ -29,14 +32,16 @@ def aggregate_data(df, group='', agge='', rename=''):
     return df
 
 
-def add_trace(fig, amenities, symbol, size=5):
+def add_trace(fig, amenities, symbol, name="tbd", size=5):
     fig.add_traces(go.Scattermapbox(mode = "markers",
     lon = amenities.long.tolist(), lat = amenities.lat.tolist(), hoverinfo='skip',
-    marker = {'size': size, 'symbol': symbol},showlegend=False,name="dfd"))
+    marker = {'size': size, 'symbol': symbol},
+    showlegend=False, name=name))
 
 
 def heatmap_airbnb_amenities(parameters, names, districts, point={"lat": 48.210033, "lon": 16.363449},
-                             zoom=10, mode='offline', title=''):
+                             zoom=10, show=True, mode='offline',
+                             center={"lat": 48.210033, "lon": 16.363449}):
     """ """
     t0 = time()
     if mode == 'offline':
@@ -51,16 +56,37 @@ def heatmap_airbnb_amenities(parameters, names, districts, point={"lat": 48.2100
     ))
     # ['restaurant', 'cafe', 'bar', 'station', 'biergarten', 'fast_food', 'pub', 'nightclub', 'theatre',
     #              'university', 'attraction']
-    add_trace(fig, parameters[1], symbol="cafe", size=4)
-    add_trace(fig, parameters[2], symbol="alcohol-shop", size=4)
-    add_trace(fig, parameters[3], symbol="bus", size=7)
-    add_trace(fig, parameters[-1], symbol="grocery", size=2)
+    add_trace(fig, parameters[1], symbol="cafe", name="cafe", size=4)
+    add_trace(fig, parameters[2], symbol="alcohol-shop", name="cafe", size=4)
+    add_trace(fig, parameters[3], symbol="bus", name="subway", size=7)
+    add_trace(fig, parameters[-1], symbol="grocery", name="supermarket", size=2)
+
     # add location spot
-    fig.add_traces(go.Scattermapbox(lat=[point['lat']], lon=[point['lon']], mode='markers', marker_size=8,
-                                    opacity=0.8, showlegend=True, marker_color="red", name="Location"))
+    if show:
+        pts = {"lat": point['latitude'].item(), "lon": point['longitude'].item()}
+        location = gpd.GeoDataFrame({'address': 'Location',
+                                     'geometry': [Point(point['longitude'].item(), point['latitude'].item())]},
+                                    crs='EPSG:4326')
+
+        fig.add_traces(go.Scattermapbox(lat=[pts['lat']], lon=[pts['lon']], mode='markers', marker_size=8,
+                                        opacity=0.8, showlegend=True, marker_color="red", name="Location"))
+        radius_in_meter = 500
+        radius = location.to_crs(epsg=7855).buffer(radius_in_meter).to_crs(epsg=4326)
+
+        ls = shapely.geometry.LineString(shapely.ops.unary_union(radius).exterior.coords)
+        lats, lons = ls.coords.xy
+
+        fig.add_trace(go.Scattermapbox(
+            mode="lines",
+            lon=list(lats),
+            lat=list(lons),
+            name=f"{radius_in_meter} m radius",
+            hoverinfo='skip',
+            marker={'size': 15, 'color': 'red', 'opacity': 0.2}))
+
 
     fig.update_layout(mapbox_style="light", mapbox_accesstoken=token, mapbox_zoom=zoom,
-                      mapbox_center=point)
+                      mapbox_center=center)
     fig.update_layout(font=dict(family="Helvetica"), legend={"title": "Select category:"})
     fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0}, paper_bgcolor='rgba(0,0,0,0)',
                       plot_bgcolor='rgba(0,0,0,0)')
@@ -69,9 +95,10 @@ def heatmap_airbnb_amenities(parameters, names, districts, point={"lat": 48.2100
     save_figure(fig.to_json(), 'airbnb_amenities')
     return fig
 
-def heatmap_airbnb_prices(df, districts, mode='offline', title=''):
+
+def heatmap_airbnb_prices(df, districts, mode='offline'):
     """
-    interesting: https://stackoverflow.com/questions/71104827/plotly-express-choropleth-map-custom-color-continuous-scale
+    returns heatmap with all the airbnbn listings
     """
     t0 = time()
     if mode == 'offline':
@@ -98,7 +125,6 @@ def heatmap_airbnb_prices(df, districts, mode='offline', title=''):
 
     fig = px.choropleth_mapbox(k, geojson=districts, locations=k['district'], featureidkey="properties.name",
                                color=cols,
-                               title=title,
                                color_discrete_sequence=farbe,
                                labels={'median': 'price per night'},
                                mapbox_style="open-street-map", zoom=10, center={"lat": 48.210033, "lon": 16.363449},
@@ -123,9 +149,11 @@ def heatmap_airbnb_prices(df, districts, mode='offline', title=''):
     return fig
 
 
-def heatmap_airbnb_listings(df, districts, mode='offline', title=''):
+def heatmap_airbnb_listings(df, districts, mode='offline'):
     """
+    returns heatmap with all the airbnbn listings
     https://plotly.com/python/builtin-colorscales/
+    interesting: https://stackoverflow.com/questions/71104827/plotly-express-choropleth-map-custom-color-continuous-scale
     """
     if mode == 'offline':
         with open('airbnb_listings.json', 'r') as f:
@@ -139,7 +167,6 @@ def heatmap_airbnb_listings(df, districts, mode='offline', title=''):
                                color_discrete_sequence=px.colors.cyclical.IceFire, #px.colors.sequential.Plasma_r, #px.colors.qualitative.Dark24,
                                color=agg['nr_listings'],
                                #color=agg['ratio'],
-                               title=title,
                                labels={'nr_listings':'Nr. of listings'},
         mapbox_style="open-street-map", zoom=10, center = {"lat": 48.210033, "lon": 16.363449}, opacity=0.30)
     neighbourhood = agg['neighbourhood'].tolist()
@@ -151,31 +178,23 @@ def heatmap_airbnb_listings(df, districts, mode='offline', title=''):
     fig.update_layout(font=dict(family="Helvetica"))
     fig.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
     fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
-    #fig.update_layout(autosize=False,width=700,height=500)
     save_figure(fig.to_json(), 'airbnb_listings')
     return fig
 
 
-def blank_fig():
-    """ returns a black fig without any content. """
-    fig = go.Figure(go.Scatter(x=[], y=[]))
-    fig.update_layout(template=None)
-    fig.update_xaxes(showgrid=False, showticklabels=False, zeroline=False)
-    fig.update_yaxes(showgrid=False, showticklabels=False, zeroline=False)
-    return fig
-
-
-def get_main_chart(dfx):
+def get_bar_chart(dfx):
+    """ returns bar chart with number of amenities within the given radius """
     try:
-        # Define color sets of paintings
         night_colors = ['rgb(56, 75, 126)', 'rgb(18, 36, 37)', 'rgb(34, 53, 101)']
 
+        # return empty bar chart for no input
         if dfx is None:
             d = {'restaurant': 0, 'cafe': 0, 'bar': 0, 'station': 0, 'biergarten': 0, 'fast_food': 0, 'pub': 0,
                  'nightclub': 0, 'theatre': 0, 'university': 0}
             df = pd.DataFrame(data=d, index=[0])
             df1_transposed = df.T
-            """ generates the horizontal bar chart with the categories """
+
+        # generates the horizontal bar chart with the categories
         else:
             df1_transposed = dfx.T
         df1_transposed.rename({0: 'value'}, inplace=True, axis=1)
@@ -199,10 +218,19 @@ def get_main_chart(dfx):
         fig.update_yaxes(fixedrange=True)
         fig.update_xaxes(fixedrange=True)
         return fig
-    except:
+
+    except Exception as e:
         fig = go.Figure(go.Scatter(x=[0], y=[0]))
         fig.update_layout(template=None)
         fig.update_xaxes(showgrid=False, showticklabels=False, zeroline=False)
         fig.update_yaxes(showgrid=False, showticklabels=False, zeroline=False)
         return fig
 
+
+def blank_fig():
+    """ returns a black fig without any content """
+    fig = go.Figure(go.Scatter(x=[], y=[]))
+    fig.update_layout(template=None)
+    fig.update_xaxes(showgrid=False, showticklabels=False, zeroline=False)
+    fig.update_yaxes(showgrid=False, showticklabels=False, zeroline=False)
+    return fig

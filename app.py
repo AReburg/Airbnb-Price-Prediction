@@ -2,7 +2,7 @@ import dash
 import logging
 import time
 from assets.layout import layout
-from assets.data_wrangling import GeoData
+from assets.data_wrangling import DataManipulation
 from assets.callbacks import register_callbacks
 from opencensus.ext.azure.log_exporter import AzureLogHandler
 
@@ -14,6 +14,7 @@ logger.addHandler(AzureLogHandler(
 dash_app = dash.Dash(__name__)
 dash_app.title = 'Airbnb Price Modelling'
 app = dash_app.server
+dash_app.config['suppress_callback_exceptions'] = True
 
 """
 from flask_caching import Cache
@@ -28,7 +29,7 @@ TIMEOUT = 60
 def query_data():
 
     t0 = time.time()
-    data = GeoData()
+    data = DataManipulation()
     df = data.import_data()
     model = data.get_model()
     region = data.get_region()
@@ -38,7 +39,7 @@ def query_data():
     restaurant = data.import_csv_to_gpd('restaurant')
     cafe = data.import_csv_to_gpd('cafe')
     attraction = data.import_csv_to_gpd('attraction')
-    station = data.import_csv_to_gpd('attraction')
+    subway = data.import_csv_to_gpd('subway')
     bar = data.import_csv_to_gpd('bar')
     biergarten = data.import_csv_to_gpd('biergarten')
     fast_food = data.import_csv_to_gpd('fast_food')
@@ -48,17 +49,15 @@ def query_data():
     university = data.import_csv_to_gpd('university')
     attraction = data.import_csv_to_gpd('attraction')
     shop = data.import_csv_to_gpd('supermarket')
-    parameters = [restaurant, cafe, bar, station, biergarten, fast_food, pub, nightclub, theatre, university,
+    parameters = [restaurant, cafe, bar, subway, biergarten, fast_food, pub, nightclub, theatre, university,
                   attraction, shop]
-    names = ['restaurant', 'cafe', 'bar', 'station', 'biergarten', 'fast_food', 'pub', 'nightclub', 'theatre',
+    names = ['restaurant', 'cafe', 'bar', 'subway', 'biergarten', 'fast_food', 'pub', 'nightclub', 'theatre',
              'university', 'attraction', 'supermarket']
     print("import took: ", time.time()-t0)
     return df, model, region, districts, parameters, names
 
 
 df, model, region, districts, parameters, names = query_data()
-dash_app.config['suppress_callback_exceptions'] = True
-
 
 dash_app.layout = layout(dash_app, df, districts, parameters, names)
 register_callbacks(dash_app, df, model, region, districts, parameters, names)

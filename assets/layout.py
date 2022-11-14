@@ -1,5 +1,4 @@
 from dash import dcc, html
-import pandas as pd
 from assets import charts
 import logging
 # import dash_bootstrap_components as dbc
@@ -56,7 +55,7 @@ def layout(app, df, districts, parameters, names):
             html.Br(),
             html.Div(id="tokenized_text"),
             html.Div(dash_dangerously_set_inner_html.DangerouslySetInnerHTML(
-                """ The chart below depicts the number of amenities found within 1000 m around the geolocation:""")),
+                """ The chart below depicts the number of amenities found within 500 m around the geolocation:""")),
             dcc.Graph(id='result-histogram', config={'displayModeBar': False}),
         ], className='eight columns div-for-charts bg-grey')
     ])

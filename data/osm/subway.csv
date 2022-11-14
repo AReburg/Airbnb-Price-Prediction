@@ -1,119 +1,119 @@
-element_type,osmid,name,network,operator,platforms,public_transport,railway,railway:position,railway:position:exact,railway:ref,station,uic_name,wheelchair,wikidata,wikipedia,geometry,subway,toilets:wheelchair,ref,uic_ref,layer,start_date,old_name,train,check_date:wheelchair,internet_access,note,proposed:railway,construction:railway,alt_name,website,architect,architect:wikidata,heritage,heritage:operator,name:etymology,name:etymology:wikidata,ref:at:bda,building:architecture,access,description,addr:city,addr:housenumber,addr:postcode,addr:street,toilets,wheelchair:description
-node,60215284,Schlachthausgasse,VOR,Wiener Linien,2,station,station,9.8,9.770,SG,subway,Wien Schlachthausgasse (U3),yes,Q2465757,de:U-Bahn-Station Schlachthausgasse,POINT (16.4067471 48.1944138),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,62687115,Gasometer,VOR,Wiener Linien,2,station,station,11.3,11.316,AW,subway,Wien Gasometer (U3),yes,Q1752839,de:U-Bahn-Station Gasometer,POINT (16.4174702 48.1851441),yes,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,62687123,Zippererstraße,VOR,Wiener Linien,2,station,station,12.0,11.972,PP,subway,Wien Zippererstraße (U3),yes,Q2465800,de:U-Bahn-Station Zippererstraße,POINT (16.4120644 48.1804386),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,67029576,Leopoldau,VOR,Wiener Linien,2,station,station,14.5,14.541,LU,subway,Wien Leopoldau (U1),yes,Q12327724,de:Bahnhof Wien Leopoldau,POINT (16.4520703 48.277582),yes,,769,8170129,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,69468988,Rochusgasse,VOR,Wiener Linien,2,station,station,8.4,8.404,RG,subway,Wien Rochusgasse (U3),yes,Q1262201,de:U-Bahn-Station Rochusgasse,POINT (16.3922544 48.2020851),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,69484904,Enkplatz,VOR,Wiener Linien,2,station,station,12.7,12.698,EK,subway,Wien Enkplatz (U3),yes,Q2465685,de:U-Bahn-Station Enkplatz,POINT (16.4147963 48.1747186),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,115184107,Kardinal-Nagl-Platz,VOR,Wiener Linien,2,station,station,9.2,9.159,KN,subway,Wien Kardinal-Nagl-Platz (U3),limited,Q1317156,de:U-Bahn-Station Kardinal-Nagl-Platz,POINT (16.3998831 48.1975587),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,117527786,Simmering,VOR,Wiener Linien,2,station,station,13.4,13.402,SA,subway,Wien Simmering (U3),yes,Q2516434,de:Verkehrsstation Wien Simmering,POINT (16.4205345 48.1697819),,yes,,8170076,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,140069854,Landstraße,VOR,Wiener Linien,2,station,station,7.8,7.762,LA,subway,Wien Mitte-Landstraße Bf (U3),yes,,,POINT (16.3852982 48.2058807),,,,8170028,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,1352828685,Meidling Hauptstraße,VOR,Wiener Linien,2,station,station,5.3,5.326,MH,subway,Wien Meidling Hauptstraße (U4),yes,Q873256,de:U-Bahn-Station Meidling Hauptstraße,POINT (16.3281212 48.1836304),,,,,-1,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,2018072719,Alaudagasse,VOR,Wiener Linien,2,,station,,,AL,subway,Wien Alaudagasse,yes,Q2465670,de:U-Bahn-Station Alaudagasse,POINT (16.3823555 48.1536948),,,,,,2017-09-02,,,,,,,,,,,,,,,,,,,,,,,,,
-node,2018072720,Altes Landgut,VOR,Wiener Linien,2,,station,,,AT,subway,Wien Altes Landgut,yes,Q2465671,de:U-Bahn-Station Altes Landgut,POINT (16.383225 48.1622926),,,,,,2017-09-02,,,,,,,,,,,,,,,,,,,,,,,,,
-node,2018072721,Neulaa,VOR,Wiener Linien,2,station,station,,,LN,subway,Wien Neulaa,yes,Q17644553,de:U-Bahn-Station Neulaa,POINT (16.3856058 48.1457661),yes,,,,,2017-09-02,,,,,,,,,,,,,,,,,,,,,,,,,
-node,2018072722,Oberlaa,VOR,Wiener Linien,2,,station,,,LO,subway,Wien Oberlaa,yes,Q1713246,de:U-Bahn-Station Oberlaa,POINT (16.3998868 48.1423146),,,,,,2017-09-02,,,,,,,,,,,,,,,,,,,,,,,,,
-node,2018072723,Troststraße,VOR,Wiener Linien,2,,station,,,TO,subway,Wien Troststraße,yes,Q15830964,de:U-Bahn-Station Troststraße,POINT (16.3802682 48.1690181),,,,,,2017-09-02,,,,,,,,,,,,,,,,,,,,,,,,,
-node,3071028227,Bahnhof Meidling,VOR,Wiener Linien,2,station,station,5.1,5.191,PH,subway,Wien Meidling Bf (U6),yes,Q514441,de:Bahnhof Wien Meidling,POINT (16.3314815 48.1739672),,yes,1015,8170040,,,Wien Philadelphiabrücke,,,,,,,,,,,,,,,,,,,,,,,,
-node,3124681405,Südtiroler Platz-Hauptbahnhof,VOR,Wiener Linien,2,station,station,1.4,1.394,SL,subway,Wien Hbf (U1),yes,Q657324,,POINT (16.3737346 48.1862627),yes,,,8170059,,,Wien Südtiroler Platz,yes,,,,,,,,,,,,,,,,,,,,,,,
-node,3324474915,Handelskai,VOR,Wiener Linien,2,station,station,15.3,15.319,HK,subway,Wien Handelskai (U6),yes,Q1990058,de:Verkehrsstation Wien Handelskai,POINT (16.3854154 48.2417359),,,1705,8170072,,,,yes,,,,,,,,,,,,,,,,,,,,,,,
-node,3488454904,Heiligenstadt,VOR,Wiener Linien,4,station,station,16.4,16.361,HS,subway,Wien Heiligenstadt (U4),yes,Q801604,de:Bahnhof Wien Heiligenstadt,POINT (16.3659272 48.2486697),,,,8170015,,,,yes,,,,,,,,,,,,,,,,,,,,,,,
-node,3488513522,Spittelau,VOR,Wiener Linien,2,station,station,12.9,12.935,AU,subway,Wien Spittelau (U6),yes,Q2516432,de:Verkehrsstation Wien Spittelau,POINT (16.358076 48.2355915),,,1062,8102004,,,,,2021-08-25,,,,,,,,,,,,,,,,,,,,,,
-node,3488513525,Spittelau,VOR,Wiener Linien,2,station,station,14.9,14.911,AU,subway,Wien Spittelau (U4),yes,Q2516432,de:Verkehrsstation Wien Spittelau,POINT (16.3585057 48.2350109),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,3500528328,Stephansplatz,VOR,Wiener Linien,2,station,station,6.7,6.676,SZ,subway,Wien Stephansplatz,yes,Q335891,de:U-Bahn-Station Stephansplatz,POINT (16.3715166 48.2080838),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,3500582336,Taubstummengasse,VOR,Wiener Linien,2,station,station,2.1,2.161,TA,subway,Wien Taubstummengasse (U1),yes,Q2465786,de:U-Bahn-Station Taubstummengasse,POINT (16.3704158 48.1936873),,,,8170060,,,,,2022-03-30,,,,,,,,,,,,,,,,,,,,,,
-node,3503264091,Karlsplatz,VOR,Wiener Linien,2,station,station,9.328,9.3,KP,subway,Wien Karlsplatz,yes,Q335894,de:U-Bahn-Station Karlsplatz,POINT (16.3697014 48.2003841),yes,,,8102000,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,3535818951,Hütteldorf,VOR,Wiener Linien,2,station,station,0.0,0.000,HF,subway,Wien Hütteldorf (U4),yes,Q15227547,,POINT (16.2609148 48.1969493),,,,8170019,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,3598290667,Aspern Nord,VOR,Wiener Linien,2,station,station,1.3,1.276,AN,subway,Wien Aspern Nord,yes,Q996654,de:Verkehrsstation Wien Aspern Nord,POINT (16.5044888 48.2345026),yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,3598290671,Hausfeldstraße,VOR,Wiener Linien,2,station,station,2.7,2.673,HU,subway,Wien Hausfeldstraße,yes,Q1775918,de:U-Bahn-Station Hausfeldstraße,POINT (16.485618 48.2334122),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,3598308198,Seestadt,VOR,Wiener Linien,2,station,station,0.0,0.000,EE,subway,Wien Seestadt,yes,Q2465764,de:U-Bahn-Station Seestadt,POINT (16.5083947 48.2262278),yes,,,,,,,,,wlan,,,,,,,,,,,,,,,,,,,,,
-node,3598326412,An den alten Schanzen,VOR,Wiener Linien,2,,,,,AZ,subway,Wien An den alten Schanzen,yes,Q17644548,de:U-Bahn-Station An den alten Schanzen,POINT (16.4785435 48.2284034),,,,,,,,,,,Rohbau fertig. Wird erst bei Bedarf eröffnet.,station,,,,,,,,,,,,,,,,,,,
-node,3836036157,Wienerberg,,Wiener Linien,2,,,,,,subway,Wien Wienerberg,yes,,,POINT (16.3459671 48.1695784),yes,,,,,2027,,,,,5. Ausbauphase,station,,,,,,,,,,,,,,,,,,,
-node,3836036196,Gussriegelstraße,,Wiener Linien,2,,,,,,subway,Wien Gussriegelstraße,yes,,,POINT (16.3581288 48.1732452),yes,,,,,2027,,,,,5. Ausbauphase,station,,,,,,,,,,,,,,,,,,,
-node,3836036225,Matzleinsdorfer Platz,,Wiener Linien,2,,,,,,subway,Wien Matzleinsdorfer Platz,yes,,,POINT (16.3583808 48.1803174),,,,,,2023,,,,,4. Ausbauphase,,station,,,,,,,,,,,,,,,,,,
-node,3836036304,Frankhplatz,,Wiener Linien,2,,,,,,subway,Wien Frankhplatz,yes,,,POINT (16.3561219 48.2155824),,,,,,2023,,,,,4. Ausbauphase,,station,,,,,,,,,,,,,,,,,,
-node,3836036325,Elterleinplatz,,Wiener Linien,2,,,,,,subway,Wien Elterleinplatz,yes,,,POINT (16.3313876 48.2181142),yes,,,,,2025,,,,,5. Ausbauphase,station,,,,,,,,,,,,,,,,,,,
-node,3836036387,Michelbeuern - AKH,,Wiener Linien,2,,,,,,subway,Wien Michelbeuern-AKH,yes,,,POINT (16.3430363 48.2214665),yes,,,,,2025,,,,,5. Ausbauphase,station,,,,,,,,,,,,,,,,,,,
-node,3836036397,Arne Carlsson-Park,,Wiener Linien,2,,,,,,subway,Wien Arne Carlsson-Park,yes,,,POINT (16.3538846 48.2215964),yes,,,,,2025,,,,,5. Ausbauphase,station,,,,,,,,,,,,,,,,,,,
-node,3862884256,Messe-Prater,VOR,Wiener Linien,2,station,station,10.9,10.944,MS,subway,Wien Messe-Prater (U2),yes,Q1768148,de:U-Bahn-Station Messe-Prater,POINT (16.4049308 48.2177786),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,3862884757,Praterstern,VOR,Wiener Linien,2,station,station,6.0,5.965,PS,subway,,yes,,,POINT (16.3930785 48.2197676),yes,,,,,,,yes,,,,,,Wien Praterstern,,,,,,,,,,,,,,,,,
-node,3862884758,Praterstern,VOR,Wiener Linien,2,station,station,11.8,11.799,PS,subway,,yes,,,POINT (16.3941852 48.2184638),yes,,,,,,,yes,,,,,,Wien Praterstern U2,,,,,,,,,,,,,,,,,
-node,3993274357,Braunschweiggasse,VOR,Wiener Linien,2,station,station,2.8,2.838,BR,subway,Wien Braunschweiggasse (U4),yes,Q2465675,de:U-Bahn-Station Braunschweiggasse,POINT (16.29582 48.1894027),,,,,,,,,2022-02-18,,,,,,,,,,,,,,,,,,,,,,
-node,3993274358,Hietzing,VOR,Wiener Linien,2,station,station,3.5,3.542,HI,subway,Wien Hietzing (U4),yes,Q2465705,de:U-Bahn-Station Hietzing,POINT (16.3045807 48.1875762),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,3993274359,Längenfeldgasse,VOR,Wiener Linien,4,station,station,5.9 / 6.6,5.851 / 6.582,LE,subway,Wien Längenfeldgasse (U4/U6),yes,Q1623753,de:U-Bahn-Station Längenfeldgasse,POINT (16.3350467 48.1849187),,,,8170029,,,,,,,"Dies ist die einzige Umsteige-U-Bahn-Station mit gleicher uic_ref, da nur hier ein gemeinsames Bahnsteigareal besteht!",,,Bruno-Pittermann-Platz,,,,,,,,,,,,,,,,,
-node,3993274360,Ober St. Veit,VOR,Wiener Linien,2,station,station,1.3,1.341,OV,subway,Wien Ober St. Veit (U4),yes,Q1734022,de:U-Bahn-Station Ober St. Veit,POINT (16.2761736 48.192234),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,3993274361,Schönbrunn,VOR,Wiener Linien,2,station,station,4.6,4.607,SB,subway,Wien Schönbrunn (U4),yes,Q2465770,de:U-Bahn-Station Schönbrunn,POINT (16.3190474 48.1860172),,,,,,,,,,,,,,,https://www.wienerlinien.at/,,,,,,,,,,,,,,,,
-node,3993274362,Unter St. Veit,VOR,Wiener Linien,2,station,station,2.1,2.079,UV,subway,Wien Unter St. Veit (U4),yes,Q2465787,de:U-Bahn-Station Unter St. Veit,POINT (16.2863684 48.1910668),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,3993298632,Stadtpark,VOR,Wiener Linien,2,station,station,10.3,10.328,ST,subway,Wien Stadtpark (U4),yes,Q1535681,de:U-Bahn-Station Stadtpark,POINT (16.3798184 48.202946),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,3993342689,Kettenbrückengasse,VOR,Wiener Linien,2,station,station,8.3,8.331,KG,subway,Wien Kettenbrückengasse (U4),yes,Q2465730,de:U-Bahn-Station Kettenbrückengasse,POINT (16.358092 48.1966328),,,,,,1898,,,,,,,,,,Otto Wagner,Q84287,2,bda,Kettenbrückengasse,Q53673373,6460,,,,,,,,,
-node,3993342690,Margaretengürtel,VOR,Wiener Linien,2,station,station,6.7,6.684,MG,subway,Wien Margaretengürtel (U4),yes,Q2465739,de:U-Bahn-Station Margaretengürtel,POINT (16.3430303 48.1884883),,,,,,,,,,,,,,,,Otto Wagner,Q84287,2,bda,,,6462,art_nouveau,,,,,,,,
-node,3993342691,Pilgramgasse,VOR,Wiener Linien,2,station,station,7.7,7.661,PG,subway,Wien Pilgramgasse (U4),no,Q873079,de:U-Bahn-Station Pilgramgasse,POINT (16.3543028 48.1921577),yes,,,,,1898,,,,,,,,,,Otto Wagner,Q84287,2,bda,Pilgramgasse,Q100708824,6461,art_nouveau,yes,,,,,,,
-node,4003901212,Friedensbrücke,VOR,Wiener Linien,2,station,station,13.9,13.914,FB,subway,Wien Friedenbrücke (U4),yes,Q2465701,de:U-Bahn-Station Friedensbrücke,POINT (16.364119 48.22771),,,357,8170013,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,4003901213,Roßauer Lände,VOR,Wiener Linien,2,station,station,13.2,13.213,RL,subway,Wien Roßauer Lände (U4),yes,Q2465756,de:U-Bahn-Station Roßauer Lände,POINT (16.3675722 48.2223375),,,1124,8170048,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,4003949409,Landstraße,VOR,Wiener Linien,2,station,station,10.9,10.867,LA,subway,Wien Mitte-Landstraße Bf (U4),yes,,,POINT (16.3847802 48.2067908),,,,8101999,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,4003977155,Schottenring,VOR,Wiener Linien,2,station,station,13.5,13.472,SR,subway,Wien Schottenring,yes,Q1669820,de:U-Bahn-Station Schottenring,POINT (16.3723981 48.2173875),,,1182,,,,,yes,,,,,,,,,,,,,,,,,,,,,,,
-node,4003977156,Schwedenplatz,VOR,Wiener Linien,2,station,station,11.7,11.707,SP,subway,Wien Schwedenplatz,yes,Q1311686,de:U-Bahn-Station Schwedenplatz,POINT (16.3785895 48.2117248),yes,,1198,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,4005731390,Siebenhirten,VOR,Wiener Linien,2,station,station,0.0,0.000,HT,subway,Wien Siebenhirten (U6),yes,Q2465773,de:U-Bahn-Station Siebenhirten,POINT (16.3098385 48.130521),,,1235,8170055,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,4005736525,Floridsdorf,VOR,Wiener Linien,2,station,station,17.3,17.347,FL,subway,Wien Floridsdorf (U6),yes,Q801603,de:Bahnhof Wien Floridsdorf,POINT (16.4004908 48.2562384),yes,,,8170012,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,4008355779,Alterlaa,VOR,Wiener Linien,2,station,station,2.3,2.348,AE,subway,Wien Alterlaa (U6),yes,Q1404089,de:U-Bahn-Station Alterlaa,POINT (16.3168475 48.1505196),yes,,1499,8170067,,,,yes,,,,,,,,,,,,,,,,,,,,,,,
-node,4008355780,Am Schöpfwerk,VOR,Wiener Linien,2,station,station,3.6,3.620,PW,subway,Wien Am Schöpfwerk (U6),no,Q1606619,de:U-Bahn-Station Am Schöpfwerk,POINT (16.3242066 48.1606776),,,48,8170003,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,4008355781,Erlaaer Straße,VOR,Wiener Linien,2,station,station,1.4,1.419,ES,subway,Wien Erlaaer Straße (U6),yes,Q2465691,de:U-Bahn-Station Erlaaer Straße,POINT (16.3165351 48.1419866),,,285,8170010,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,4008355782,Perfektastraße,VOR,Wiener Linien,2,station,station,0.8,0.771,PF,subway,Wien Perfektastraße (U6),yes,Q1433612,de:U-Bahn-Station Perfektastraße,POINT (16.3132527 48.1366232),,,1007,8170039,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,4008355785,Tscherttegasse,VOR,Wiener Linien,2,station,station,4.1,4.141,TE,subway,Wien Tscherttegasse (U6),yes,Q1242856,de:U-Bahn-Station Tscherttegasse,POINT (16.3277927 48.1649777),,,1394,8170062,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,4012141489,Niederhofstraße,VOR,Wiener Linien,2,station,station,6.0,6.004,NH,subway,Wien Niederhofstraße (U6),yes,Q973992,de:U-Bahn-Station Niederhofstraße,POINT (16.331145 48.1807684),,,937,8170035,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,4048187887,Reinprechtsdorfer Straße,,Wiener Linien,2,,,,,,subway,Wien Reinprechtsdorfer Straße,yes,Q18028832,,POINT (16.3545222 48.186692),,,,,,2023,,,,,4. Ausbauphase,,station,,,,,,,,,,,,,,,,,,
-node,4073027290,Stadion,VOR,Wiener Linien,3,station,station,9.5,9.534,SW,subway,Wien Stadion,yes,Q2465778,de:U-Bahn-Station Stadion,POINT (16.4204937 48.2104985),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,4073135889,Donaumarina,VOR,Wiener Linien,2,station,station,8.4,8.408,DM,subway,,yes,,,POINT (16.431461 48.2063838),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,4073146389,Krieau,VOR,Wiener Linien,2,station,station,10.2,10.197,TR,subway,,yes,Q2465724,de:U-Bahn-Station Krieau,POINT (16.4137446 48.2146912),yes,,,,,,,,,no,,,,,,,,,,,,,,,,,,,,,
-node,4076415290,Aspernstraße,VOR,Wiener Linien,2,station,station,4.3,4.256,AP,subway,Wien Aspernstraße,yes,Q1537876,de:U-Bahn-Station Aspernstraße,POINT (16.4749346 48.2225976),yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,4076631293,Donauspital,VOR,Wiener Linien,2,station,station,5.1,5.057,DP,subway,Wien Donauspital,yes,Q2465681,de:U-Bahn-Station Donauspital,POINT (16.4666399 48.2194301),yes,,,,,,,,,no,,,,,,,,,,,,,,,,,,,,,
-node,4076716391,Hardeggasse,VOR,Wiener Linien,2,station,station,5.7,5.739,AR,subway,Wien Hardeggasse,yes,Q2465694,de:U-Bahn-Station Hardeggasse,POINT (16.4578116 48.2208849),yes,yes,,,,,,,,no,,,,,,,,,,,,,,,,,,,,,
-node,4077783491,Stadlau,VOR,Wiener Linien,2,station,station,6.4,6.376,SD,subway,Wien Stadlau,yes,Q801608,de:Bahnhof Wien Stadlau,POINT (16.449558 48.2197733),yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,4078094389,Donaustadtbrücke,VOR,Wiener Linien,2,station,station,7.6,7.553,DT,subway,Wien Donaustadtbrücke,yes,Q1597347,de:U-Bahn-Station Donaustadtbrücke,POINT (16.440166 48.2117999),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,4086541541,Taborstraße,VOR,Wiener Linien,2,station,station,12.8,12.760,TB,subway,Wien Taborstraße,yes,Q2465780,de:U-Bahn-Station Taborstraße,POINT (16.3815518 48.2192624),,,,,,,,yes,,,,,,,,,,,,,,,,,,,,,,,
-node,4104690590,Rathaus,VOR,Wiener Linien,2,station,construction,15.1,15.141,RH,subway,Wien Rathaus,yes,Q1376459,de:U-Bahn-Station Rathaus,POINT (16.3554084 48.2102064),yes,,,,,,,,,,,,,,,,,,,,,,,,U2 fährt bis Herbst 2023 nur bis Schottentor,,,,,,
-node,4113713892,Volkstheater,VOR,Wiener Linien,2,station,station,15.8,15.806,VT,subway,Wien Volkstheater,yes,Q2465791,de:U-Bahn-Station Volkstheater,POINT (16.3578591 48.205275),,,,,,,,yes,,,,,,,,,,,,,,,,,,,,,,,
-node,4123615290,Museumsquartier,VOR,Wiener Linien,2,station,construction,16.2,16.230,BA,subway,Wien Museumsquartier,yes,Q1429067,de:U-Bahn-Station Museumsquartier,POINT (16.3612866 48.2026346),,,,,,,Mariahilfer Straße;Babenbergerstraße,,,,,,,Mariahilfer Straße,,,,,,,,,,,,,,,,,
-node,4140677491,Großfeldsiedlung,VOR,Wiener Linien,2,station,station,13.6,13.571,GF,subway,Wien Großfeldsiedlung (U1),yes,Q663988,de:U-Bahn-Station Großfeldsiedlung,POINT (16.4478821 48.2710952),,,,8170606,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,4155298891,Aderklaaer Straße,VOR,Wiener Linien,2,station,station,12.7,12.663,AK,subway,Wien Aderklaaer Straße (U1),yes,Q1599589,de:U-Bahn-Station Aderklaaer Straße,POINT (16.4516287 48.2634265),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,4155452193,Rennbahnweg,VOR,Wiener Linien,2,station,station,12.0,11.989,RB,subway,Wien Rennbahnweg (U1),yes,Q1436932,de:U-Bahn-Station Rennbahnweg,POINT (16.4496328 48.2576086),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,4155868489,Kagraner Platz,VOR,Wiener Linien,2,station,station,11.0,11.042,KT,subway,Wien Kagraner Platz (U1),yes,Q2465718,de:U-Bahn-Station Kagraner Platz,POINT (16.4432539 48.2502254),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,4160807391,Kagran,VOR,Wiener Linien,2,station,station,9.9,9.897,ZK,subway,Wien Kagran (U1),yes,Q2465712,de:U-Bahn-Station Kagran,POINT (16.4329191 48.2430028),yes,,,,,,Wien Zentrum Kagran,,,,,,,,,,,,,,,,,,,,,,,,
-node,4161088301,Alte Donau,VOR,Wiener Linien,2,station,station,9.1,9.100,AD,subway,Wien Alte Donau (U1),yes,Q2465673,de:U-Bahn-Station Alte Donau,POINT (16.4247729 48.2382709),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,4161756600,Westbahnhof,VOR,Wiener Linien,2,station,station,3.5,3.492,WS,subway,Wien Westbahnhof (U3),yes,,,POINT (16.3379226 48.1958783),,,1468,8170066,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,4161769952,Schweglerstraße,VOR,Wiener Linien,2,station,station,2.6,2.611,SH,subway,Wien Schweglerstraße (U3),yes,Q2465760,de:U-Bahn-Station Schweglerstraße,POINT (16.3286297 48.1976875),yes,,,,-2,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,4161774320,Johnstraße,VOR,Wiener Linien,2,station,station,2.0,2.024,JO,subway,Wien Johnstraße (U3),yes,Q1664168,de:U-Bahn-Station Johnstraße,POINT (16.3201287 48.1976282),yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,4161779363,Hütteldorfer Straße,VOR,Wiener Linien,2,station,station,1.3,1.299,HH,subway,Wien Hütteldorfer Straße (U3),limited,Q259315,de:U-Bahn-Station Hütteldorfer Straße,POINT (16.3110744 48.2000837),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,4161779364,Kendlerstraße,VOR,Wiener Linien,2,station,station,0.7,0.735,KR,subway,Wien Kendlerstraße (U3),yes,Q2465721,de:U-Bahn-Station Kendlerstraße,POINT (16.3091223 48.2045707),yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,4167184427,Keplerplatz,VOR,Wiener Linien,2,station,station,0.5,0.507,KE,subway,Wien Keplerplatz (U1),yes,Q1573137,de:U-Bahn-Station Keplerplatz,POINT (16.3761188 48.1793553),yes,,,8170026,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,4167184437,Reumannplatz,VOR,Wiener Linien,2,station,station,0.0,0.000,RP,subway,Wien Reumannplatz (U1),yes,Q1490933,de:U-Bahn-Station Reumannplatz,POINT (16.377918 48.174919),,no,,8170046,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,4169259989,Kaisermühlen - VIC,VOR,Wiener Linien,2,station,station,8.2,8.237,KM,subway,Wien Kaisermühlen VIC (U1),yes,Q2465709,de:U-Bahn-Station Kaisermühlen,POINT (16.4164115 48.232829),yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,4169472889,Donauinsel,VOR,Wiener Linien,2,station,station,7.7,7.675,DI,subway,Wien Donauinsel (U1),yes,Q518606,de:U-Bahn-Station Donauinsel,POINT (16.4113918 48.2292159),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,4169757308,Vorgartenstraße,VOR,Wiener Linien,2,station,station,6.7,6.680,VS,subway,Wien Vorgartenstraße (U1),yes,Q1278671,de:U-Bahn-Station Vorgartenstraße,POINT (16.4010572 48.2236328),yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,4174037289,Nestroyplatz,VOR,Wiener Linien,2,station,station,5.2,5.197,NP,subway,Wien Nestroyplatz (U1),yes,Q2465749,de:U-Bahn-Station Nestroyplatz,POINT (16.3855453 48.2153104),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,4228503593,Ottakring,VOR,Wiener Linien,3,station,station,0.0,0.000,OK,subway,Wien Ottakring (U3),yes,Q801606,,POINT (16.3113574 48.2110317),,,,,,,,yes,,,,,,,,,,,,,,,,,,,,,,,
-node,4281875074,Gumpendorfer Straße,VOR,Wiener Linien,2,station,station,7.3,7.337,GU,subway,Wien Gumpendorfer Straße (U6),yes,Q2465698,de:U-Bahn-Station Gumpendorfer Straße,POINT (16.3375442 48.1907374),,,436,8170014,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,4281897753,Westbahnhof,VOR,Wiener Linien,2,station,station,8.0,8.022,WS,subway,Wien Westbahnhof (U6),yes,,,POINT (16.3391963 48.1968048),,,1468,8102005,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,4281904637,Burggasse-Stadthalle,VOR,Wiener Linien,2,station,station,8.8,8.776,BU,subway,Wien Burggasse-Stadthalle (U6),yes,Q2465678,de:U-Bahn-Station Burggasse-Stadthalle,POINT (16.3371994 48.2033124),yes,,188,8170007,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,4281927209,Neue Donau,VOR,Wiener Linien,2,station,station,16.2,16.170,ND,subway,Wien Neue Donau (U6),yes,Q1534005,de:U-Bahn-Station Neue Donau,POINT (16.3947025 48.2462997),,,1668,8170071,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,4281932864,Jägerstraße,VOR,Wiener Linien,2,station,station,13.7,13.728,JG,subway,Wien Jägerstraße (U6),yes,Q1602480,de:U-Bahn-Station Jägerstraße,POINT (16.3687097 48.235224),,,1667,8170070,,,,yes,,,,,,,,,,,,,,,,,,,,,,,
-node,4281939061,Dresdner Straße,VOR,Wiener Linien,2,station,station,14.5,14.518,DS,subway,Wien Dresdner Straße (U6),yes,Q2465683,de:U-Bahn-Station Dresdner Straße,POINT (16.3802291 48.2373082),,,,8170016,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,4283722989,Alser Straße,VOR,Wiener Linien,2,station,station,10.4,10.352,AS,subway,Wien Alser Straße (U6),yes,Q1739409,de:U-Bahn-Station Alser Straße,POINT (16.3418121 48.2167675),,yes,27,8170001,,,,,,,,,,,,,,,,,,,,,,Wien,88,1090,Stadtbahnbögen,,
-node,4283722990,Josefstädter Straße,VOR,Wiener Linien,2,station,station,9.7,9.717,JS,subway,Wien Josefstädter Straße (U6),yes,Q2465704,de:U-Bahn-Station Josefstädter Straße,POINT (16.3391653 48.2114659),,,615,8170021,,,,yes,,,,,,,,,,,,,,,,,,,,,,,
-node,4283722991,Michelbeuern - AKH,VOR,Wiener Linien,2,station,station,10.9,10.869,MB,subway,Wien Michelbeuern-AKH (U6),yes,Q2465734,de:U-Bahn-Station Michelbeuern,POINT (16.3441586 48.2211652),yes,,874,8170033,,,,yes,,,,,,,,,,,,,,,,,,,,,,,
-node,4283722992,Nußdorfer Straße,VOR,Wiener Linien,2,station,station,12.2,12.236,NS,subway,Wien Nußdorfer Straße (U6),yes,Q2465750,de:U-Bahn-Station Nußdorfer Straße,POINT (16.3524653 48.2313384),,,950,8170036,,,,,,,,,,Wien Nussdorfer Straße,,,,,,,,,,,,,,,,no,
-node,4283722993,Thaliastraße,VOR,Wiener Linien,2,station,station,9.3,9.268,TS,subway,Wien Thaliastraße (U6),yes,Q1709379,de:U-Bahn-Station Thaliastraße,POINT (16.3380073 48.2078001),,,1372,8170061,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,4283722994,Währinger Straße-Volksoper,VOR,Wiener Linien,2,station,station,11.5,11.546,WA,subway,Wien Währinger Straße-Volksoper (U6),yes,Q2465793,de:U-Bahn-Station Währinger Straße,POINT (16.349517 48.2256269),yes,,1510,8170068,,,,,,,,,,,,,,,,,,,,,,,,,,no,
-node,4347738147,Schottentor,VOR,Wiener Linien,2,station,station,14.2,14.220,SO,subway,Wien Schottentor (U2),yes,Q1263745,de:U-Bahn-Station Schottentor,POINT (16.3629278 48.2150481),,,2,8170050,,,,,,,,,,Universität,,,,,,,,,,,,,,,,,
-node,4348320098,Erdberg,VOR,Wiener Linien,2,station,station,10.4,10.434,ED,subway,Wien Erdberg (U3),yes,Q1764534,de:U-Bahn-Station Erdberg,POINT (16.4141569 48.1914136),yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,4348336039,Herrengasse,VOR,Wiener Linien,2,station,station,6.1,6.145,HZ,subway,Wien Herrengasse (U3),no,Q1784764,de:U-Bahn-Station Herrengasse,POINT (16.3656353 48.209398),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Solange der einzige auf Straßenniveau (Minoritenplatz) führende Lift funktioniert ist die Station barrierefrei. Sonst gibt's nur Stiegen und Rolltreppen!
-node,4348336040,Stubentor,VOR,Wiener Linien,2,station,station,7.3,7.259,SE,subway,Wien Stubentor (U3),limited,Q1287077,de:U-Bahn-Station Stubentor,POINT (16.3792758 48.2069483),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,4348437215,Neubaugasse,VOR,Wiener Linien,2,station,station,4.6,4.619,MA,subway,Wien Neubaugasse (U3),yes,Q2465746,de:U-Bahn-Station Neubaugasse,POINT (16.3526723 48.1993161),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,4348437231,Zieglergasse,VOR,Wiener Linien,2,station,station,4.1,4.100,GZ,subway,Wien Zieglergasse (U3),yes,Q2465796,de:U-Bahn-Station Zieglergasse,POINT (16.3462979 48.197145),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,4560843526,Karlsplatz,VOR,Wiener Linien,2,station,station,3.089,3.1,KP,subway,Wien Karlsplatz,yes,Q335894,de:U-Bahn-Station Karlsplatz,POINT (16.3691588 48.2016073),yes,,,8102000,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,4560843527,Karlsplatz,VOR,Wiener Linien,2,station,station,16.838,16.8,KP,subway,Wien Karlsplatz,yes,Q335894,de:U-Bahn-Station Karlsplatz,POINT (16.3693116 48.2009786),yes,,,8102000,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,4560843528,Schottenring,VOR,Wiener Linien,2,station,station,12.5,12.469,SR,subway,Wien Schottenring,yes,Q1669820,de:U-Bahn-Station Schottenring,POINT (16.3719681 48.2165452),,,1182,,,,,yes,,,,,,,,,,,,,,,,,,,,,,,
-node,4560869523,Volkstheater,VOR,Wiener Linien,2,station,station,5.5,5.508,VT,subway,Wien Volkstheater,yes,Q2465791,de:U-Bahn-Station Volkstheater,POINT (16.3591523 48.2056573),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,4560869524,Schwedenplatz,VOR,Wiener Linien,2,station,station,4.5,4.490,SP,subway,Wien Schwedenplatz,yes,Q1311686,de:U-Bahn-Station Schwedenplatz,POINT (16.3776525 48.2117909),yes,,1198,,,,,,,no,,,,,,,,,,,,,,,,,,,,,
-node,4560869722,Stephansplatz,VOR,Wiener Linien,2,station,station,3.9,3.912,SZ,subway,Wien Stephansplatz,yes,Q335891,de:U-Bahn-Station Stephansplatz,POINT (16.3720045 48.208419),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-node,9174951410,Hernals,,Wiener Linien,2,,,,,,subway,Wien Hernals,yes,,,POINT (16.3176704 48.2228108),yes,,,,,2025,,,,,5. Ausbauphase,station,,,,,,,,,,,,,,,,,,,
+element_type,osmid,geometry
+node,60215284,POINT (16.4067471 48.1944138)
+node,62687115,POINT (16.4174702 48.1851441)
+node,62687123,POINT (16.4120644 48.1804386)
+node,67029576,POINT (16.4520703 48.277582)
+node,69468988,POINT (16.3922544 48.2020851)
+node,69484904,POINT (16.4147963 48.1747186)
+node,115184107,POINT (16.3998831 48.1975587)
+node,117527786,POINT (16.4205345 48.1697819)
+node,140069854,POINT (16.3852982 48.2058807)
+node,1352828685,POINT (16.3281212 48.1836304)
+node,2018072719,POINT (16.3823555 48.1536948)
+node,2018072720,POINT (16.383225 48.1622926)
+node,2018072721,POINT (16.3856058 48.1457661)
+node,2018072722,POINT (16.3998868 48.1423146)
+node,2018072723,POINT (16.3802682 48.1690181)
+node,3071028227,POINT (16.3314815 48.1739672)
+node,3124681405,POINT (16.3737346 48.1862627)
+node,3324474915,POINT (16.3854154 48.2417359)
+node,3488454904,POINT (16.3659272 48.2486697)
+node,3488513522,POINT (16.358076 48.2355915)
+node,3488513525,POINT (16.3585057 48.2350109)
+node,3500528328,POINT (16.3715166 48.2080838)
+node,3500582336,POINT (16.3704158 48.1936873)
+node,3503264091,POINT (16.3697014 48.2003841)
+node,3535818951,POINT (16.2609148 48.1969493)
+node,3598290667,POINT (16.5044888 48.2345026)
+node,3598290671,POINT (16.485618 48.2334122)
+node,3598308198,POINT (16.5083947 48.2262278)
+node,3598326412,POINT (16.4785435 48.2284034)
+node,3836036157,POINT (16.3459671 48.1695784)
+node,3836036196,POINT (16.3581288 48.1732452)
+node,3836036225,POINT (16.3583808 48.1803174)
+node,3836036304,POINT (16.3561219 48.2155824)
+node,3836036325,POINT (16.3313876 48.2181142)
+node,3836036387,POINT (16.3430363 48.2214665)
+node,3836036397,POINT (16.3538846 48.2215964)
+node,3862884256,POINT (16.4049308 48.2177786)
+node,3862884757,POINT (16.3930785 48.2197676)
+node,3862884758,POINT (16.3941852 48.2184638)
+node,3993274357,POINT (16.29582 48.1894027)
+node,3993274358,POINT (16.3045807 48.1875762)
+node,3993274359,POINT (16.3350467 48.1849187)
+node,3993274360,POINT (16.2761736 48.192234)
+node,3993274361,POINT (16.3190474 48.1860172)
+node,3993274362,POINT (16.2863684 48.1910668)
+node,3993298632,POINT (16.3798184 48.202946)
+node,3993342689,POINT (16.358092 48.1966328)
+node,3993342690,POINT (16.3430303 48.1884883)
+node,3993342691,POINT (16.3543028 48.1921577)
+node,4003901212,POINT (16.364119 48.22771)
+node,4003901213,POINT (16.3675722 48.2223375)
+node,4003949409,POINT (16.3847802 48.2067908)
+node,4003977155,POINT (16.3723981 48.2173875)
+node,4003977156,POINT (16.3785895 48.2117248)
+node,4005731390,POINT (16.3098385 48.130521)
+node,4005736525,POINT (16.4004908 48.2562384)
+node,4008355779,POINT (16.3168475 48.1505196)
+node,4008355780,POINT (16.3242066 48.1606776)
+node,4008355781,POINT (16.3165351 48.1419866)
+node,4008355782,POINT (16.3132527 48.1366232)
+node,4008355785,POINT (16.3277927 48.1649777)
+node,4012141489,POINT (16.331145 48.1807684)
+node,4048187887,POINT (16.3545222 48.186692)
+node,4073027290,POINT (16.4204937 48.2104985)
+node,4073135889,POINT (16.431461 48.2063838)
+node,4073146389,POINT (16.4137446 48.2146912)
+node,4076415290,POINT (16.4749346 48.2225976)
+node,4076631293,POINT (16.4666399 48.2194301)
+node,4076716391,POINT (16.4578116 48.2208849)
+node,4077783491,POINT (16.449558 48.2197733)
+node,4078094389,POINT (16.440166 48.2117999)
+node,4086541541,POINT (16.3815518 48.2192624)
+node,4104690590,POINT (16.3554084 48.2102064)
+node,4113713892,POINT (16.3578591 48.205275)
+node,4123615290,POINT (16.3612866 48.2026346)
+node,4140677491,POINT (16.4478821 48.2710952)
+node,4155298891,POINT (16.4516287 48.2634265)
+node,4155452193,POINT (16.4496328 48.2576086)
+node,4155868489,POINT (16.4432539 48.2502254)
+node,4160807391,POINT (16.4329191 48.2430028)
+node,4161088301,POINT (16.4247729 48.2382709)
+node,4161756600,POINT (16.3379226 48.1958783)
+node,4161769952,POINT (16.3286297 48.1976875)
+node,4161774320,POINT (16.3201287 48.1976282)
+node,4161779363,POINT (16.3110744 48.2000837)
+node,4161779364,POINT (16.3091223 48.2045707)
+node,4167184427,POINT (16.3761188 48.1793553)
+node,4167184437,POINT (16.377918 48.174919)
+node,4169259989,POINT (16.4164115 48.232829)
+node,4169472889,POINT (16.4113918 48.2292159)
+node,4169757308,POINT (16.4010572 48.2236328)
+node,4174037289,POINT (16.3855453 48.2153104)
+node,4228503593,POINT (16.3113574 48.2110317)
+node,4281875074,POINT (16.3375442 48.1907374)
+node,4281897753,POINT (16.3391963 48.1968048)
+node,4281904637,POINT (16.3371994 48.2033124)
+node,4281927209,POINT (16.3947025 48.2462997)
+node,4281932864,POINT (16.3687097 48.235224)
+node,4281939061,POINT (16.3802291 48.2373082)
+node,4283722989,POINT (16.3418121 48.2167675)
+node,4283722990,POINT (16.3391653 48.2114659)
+node,4283722991,POINT (16.3441586 48.2211652)
+node,4283722992,POINT (16.3524653 48.2313384)
+node,4283722993,POINT (16.3380073 48.2078001)
+node,4283722994,POINT (16.349517 48.2256269)
+node,4347738147,POINT (16.3629278 48.2150481)
+node,4348320098,POINT (16.4141569 48.1914136)
+node,4348336039,POINT (16.3656353 48.209398)
+node,4348336040,POINT (16.3792758 48.2069483)
+node,4348437215,POINT (16.3526723 48.1993161)
+node,4348437231,POINT (16.3462979 48.197145)
+node,4560843526,POINT (16.3691588 48.2016073)
+node,4560843527,POINT (16.3693116 48.2009786)
+node,4560843528,POINT (16.3719681 48.2165452)
+node,4560869523,POINT (16.3591523 48.2056573)
+node,4560869524,POINT (16.3776525 48.2117909)
+node,4560869722,POINT (16.3720045 48.208419)
+node,9174951410,POINT (16.3176704 48.2228108)
